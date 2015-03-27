@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
   def new
     @restaurant = Restaurant.find(params[:restaurant_id])
     @review = Review.new
+    @ratings = [1, 2, 3, 4, 5]
   end
 
   def create

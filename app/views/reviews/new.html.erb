@@ -4,8 +4,16 @@
   <%= f.label :body %>
   <%= f.text_field :body %>
 
-  <%= f.label :rating %>
-  <%= f.text_field :rating %>
+  <br><br><p>rating</p>
+  <% @ratings.each do |rating| %>
+    <%= f.radio_button(:rating, rating) %>
+    <%= f.label("rating_#{rating}", rating) %>
+  <% end %>
   <br><br>
   <%= f.submit "Submit review" %>
 <% end %>
+<br>
+
+<%= link_to "Back to #{@restaurant.name}", restaurant_path(@restaurant) %>
+<br>
+<%= link_to "Back to all restaurants", restaurants_path %>
