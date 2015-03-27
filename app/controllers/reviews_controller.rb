@@ -1,12 +1,12 @@
 class ReviewsController < ApplicationController
   def new
-    @restaurant = Restaurant.find(params[:restaurant_id])
+    @restaurant = find_restaurant
     @review = Review.new
     @ratings = [1, 2, 3, 4, 5]
   end
 
   def create
-    @restaurant = Restaurant.find(params[:restaurant_id])
+    @restaurant = find_restaurant
     @review = @restaurant.reviews.new(review_params)
 
     if @review.save
@@ -16,6 +16,10 @@ class ReviewsController < ApplicationController
       flash[:notice] = @review.errors.full_messages.join(" ")
       render :new
     end
+  end
+
+  def find_restaurant
+    Restaurant.find(params[:restaurant_id])
   end
 
   protected
