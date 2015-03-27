@@ -12,7 +12,7 @@
 <ul>
   <% @reviews.each do |review| %>
     <li>
-      Review: <%= review.body %> ------- Rating: <%= review.rating %>
+      Review: <%= review.body %> ------- Rating: <%= "☆" * review.rating %>
     </li>
   <% end %>
 </ul>
