@@ -1,11 +1,11 @@
 <h3><%= @restaurant.name %></h3>
 
-<p><%= @restaurant.address %><p>
-<p><%= @restaurant.city %><p>
-<p><%= @restaurant.state %><p>
-<p><%= @restaurant.zip_code %><p>
-<p><%= @restaurant.description %><p>
-<p><%= @restaurant.category %><p>
+<p>Address: <%= @restaurant.address %><p>
+<p>City: <%= @restaurant.city %><p>
+<p>State: <%= @restaurant.state %><p>
+<p>Zip code: <%= @restaurant.zip_code %><p>
+<p>Description: <%= @restaurant.description %><p>
+<p>Category: <%= @restaurant.category %><p>
 
 <h2>Reviews</h2>
 
@@ -16,3 +16,6 @@
     </li>
   <% end %>
 </ul>
+
+<%= link_to "Back to all restaurants", restaurants_path %>
+<%= link_to "Add a review!", new_restaurant_review_path(params[:id]) %>
